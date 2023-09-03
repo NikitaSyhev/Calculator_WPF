@@ -8,8 +8,9 @@
         Title="MainWindow" Height="450" Width="800"
         MinHeight="350" MinWidth="700">
     <Window.Resources>
-        <ControlTemplate x:Key="tmpButton001" TargetType="Button">
-            <Border Background="{TemplateBinding Background}" CornerRadius="15" Height="{TemplateBinding Height}" 
+        <ControlTemplate x:Key="tmpNumbers" TargetType="Button">
+            <Border Background="LightBlue" CornerRadius="15"
+                    Height="{TemplateBinding Height}" 
                     Width="{TemplateBinding Width}"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center">
@@ -19,6 +20,112 @@
                            FontSize="{TemplateBinding FontSize}"
                            FontWeight="{TemplateBinding FontWeight}"
                            />
+                
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <!--Setter Property="TextBlock.FontSize" Value="35" /-->
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="Background" Value="IndianRed" />
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="False">
+                    <Setter Property="FontWeight" Value="Normal" />
+                    <Setter Property="Background" Value="Chocolate" />
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Width" Value="145" />
+                    <Setter Property="Height" Value="65" />
+                </Trigger >
+                <Trigger Property="IsPressed" Value="False">
+                    <Setter Property="Width" Value="155" />
+                    <Setter Property="Height" Value="75" />
+                </Trigger >
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="tmpStyles" TargetType="Button">
+            <Border Background="AntiqueWhite" CornerRadius="15"
+                    Height="{TemplateBinding Height}" 
+                    Width="{TemplateBinding Width}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+                <TextBlock Text="{TemplateBinding Content}"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           FontSize="{TemplateBinding FontSize}"
+                           FontWeight="{TemplateBinding FontWeight}"
+                           />
+
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <!--Setter Property="TextBlock.FontSize" Value="35" /-->
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="Background" Value="IndianRed" />
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="False">
+                    <Setter Property="FontWeight" Value="Normal" />
+                    <Setter Property="Background" Value="Chocolate" />
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Width" Value="145" />
+                    <Setter Property="Height" Value="65" />
+                </Trigger >
+                <Trigger Property="IsPressed" Value="False">
+                    <Setter Property="Width" Value="155" />
+                    <Setter Property="Height" Value="75" />
+                </Trigger >
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="tmpEqual" TargetType="Button">
+            <Border Background="Red" CornerRadius="15"
+                    Height="{TemplateBinding Height}" 
+                    Width="{TemplateBinding Width}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+                <TextBlock Text="{TemplateBinding Content}"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           FontSize="{TemplateBinding FontSize}"
+                           FontWeight="{TemplateBinding FontWeight}"
+                           />
+
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <!--Setter Property="TextBlock.FontSize" Value="35" /-->
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="Background" Value="IndianRed" />
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="False">
+                    <Setter Property="FontWeight" Value="Normal" />
+                    <Setter Property="Background" Value="Chocolate" />
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Width" Value="145" />
+                    <Setter Property="Height" Value="65" />
+                </Trigger >
+                <Trigger Property="IsPressed" Value="False">
+                    <Setter Property="Width" Value="155" />
+                    <Setter Property="Height" Value="75" />
+                </Trigger >
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="tmpButtonActions" TargetType="Button">
+            <Border Background="LightGreen" CornerRadius="15"
+                    Height="{TemplateBinding Height}" 
+                    Width="{TemplateBinding Width}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+                <TextBlock Text="{TemplateBinding Content}"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           FontSize="{TemplateBinding FontSize}"
+                           FontWeight="{TemplateBinding FontWeight}"
+                           />
+
             </Border>
             <ControlTemplate.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
@@ -56,39 +163,68 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="texbBoxInput" 
+        <TextBox x:Name="Display" 
                  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"
                  FontSize="30" />
-        <Button x:Name="btn1" Template="{StaticResource tmpButton001}"
+        <Button x:Name="btn1" Template="{StaticResource tmpNumbers}"
                 Grid.Column="0" Grid.Row="1" Content="1"
                 FontSize="35" Click="btnNumeric_Click"/>
-        <Button x:Name="btn2" Template="{StaticResource tmpButton001}"
+        <Button x:Name="btn2" Template="{StaticResource tmpNumbers}"
                 Grid.Column="1" Grid.Row="1" Content="2"
                 FontSize="35" Click="btnNumeric_Click"/>
-        <Button x:Name="btn3" Template="{StaticResource tmpButton001}"
+        <Button x:Name="btn3" Template="{StaticResource tmpNumbers}"
                 Grid.Column="2" Grid.Row="1" Content="3"
                 FontSize="35" Click="btnNumeric_Click"/>
-        <Button x:Name="btn4" Template="{StaticResource tmpButton001}"
+        <Button x:Name="btn4" Template="{StaticResource tmpNumbers}"
                 Grid.Column="0" Grid.Row="2" Content="4"
                 FontSize="35" Click="btnNumeric_Click"/>
-        <Button x:Name="btn5" Template="{StaticResource tmpButton001}"
+        <Button x:Name="btn5" Template="{StaticResource tmpNumbers}"
                 Grid.Column="1" Grid.Row="2" Content="5"
                 FontSize="35" Click="btnNumeric_Click"/>
-        <Button x:Name="btn6" Template="{StaticResource tmpButton001}"
+        <Button x:Name="btn6" Template="{StaticResource tmpNumbers}"
                 Grid.Column="2" Grid.Row="2" Content="6"
                 FontSize="35" Click="btnNumeric_Click"/>
-        <Button x:Name="btn7" Template="{StaticResource tmpButton001}"
+        <Button x:Name="btn7" Template="{StaticResource tmpNumbers}"
                 Grid.Column="0" Grid.Row="3" Content="7"
                 FontSize="35" Click="btnNumeric_Click"/>
-        <Button x:Name="btn8" Template="{StaticResource tmpButton001}"
+        <Button x:Name="btn8" Template="{StaticResource tmpNumbers}"
                 Grid.Column="1" Grid.Row="3" Content="8"
                 FontSize="35" Click="btnNumeric_Click"/>
-        <Button x:Name="btn9" Template="{StaticResource tmpButton001}"
+        <Button x:Name="btn9" Template="{StaticResource tmpNumbers}"
                 Grid.Column="2" Grid.Row="3" Content="9"
                 FontSize="35" Click="btnNumeric_Click"/>
-        <Button x:Name="btn0" Template="{StaticResource tmpButton001}"
+        <Button x:Name="btn0" Template="{StaticResource tmpNumbers}"
                 Grid.Column="1" Grid.Row="4" Content="0"
                 FontSize="35" Click="btnNumeric_Click"/>
+        <Button x:Name="btnPlus" Template="{StaticResource tmpButtonActions}"
+                Grid.Column="3" Grid.Row="1" Content="+"
+                FontSize="35" Click="btnAction_Click"/>
+        <Button x:Name="btnMinus" Template="{StaticResource tmpButtonActions}"
+                Grid.Column="3" Grid.Row="2" Content="-"
+                FontSize="35" Click="btnAction_Click"/>
+        <Button x:Name="btnMuMultiply" Template="{StaticResource tmpButtonActions}"
+                Grid.Column="3" Grid.Row="3" Content="*"
+                FontSize="35" Click="btnAction_Click"/>
+        <Button x:Name="btnSusbstitute" Template="{StaticResource tmpButtonActions}"
+                Grid.Column="3" Grid.Row="4" Content="/"
+                FontSize="35" Click="btnAction_Click"/>
+        <Button x:Name="btnEqual" Template="{StaticResource tmpEqual}"
+                Grid.Column="2" Grid.Row="4" Content="="
+                FontSize="35" Click="btnEqual_Click"/>
+
+        <Button x:Name="Black" Template="{StaticResource tmpStyles}"
+                Grid.Column="5" Grid.Row="1" Content="Black"
+                FontSize="35" Click="btnStyle_Click"/>
         
+        <Button x:Name="Green" Template="{StaticResource tmpStyles}"
+                Grid.Column="5" Grid.Row="2" Content="Green"
+                FontSize="35" Click="btnStyle_Click"/>
+        <Button x:Name="Blue" Template="{StaticResource tmpStyles}"
+                Grid.Column="5" Grid.Row="3" Content="Blue"
+                FontSize="35" Click="btnStyle_Click"/>
+        <Button x:Name="White" Template="{StaticResource tmpStyles}"
+                Grid.Column="5" Grid.Row="4" Content="White"
+                FontSize="35" Click="btnStyle_Click"/>
+
     </Grid>
 </Window>
